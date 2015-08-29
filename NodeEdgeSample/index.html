@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>Edge.js sample</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body ng-app="edgeCrudApp">
+	<div class="container" ng-controller="EdgeCrudController as vm">
+		<div class="text-center">
+			<h1>Node-Edge-.NET CRUD Application</h1>
+			<hr/>
+			<div class="col-md-12">
+				<form name="vm.addEditEmployee">
+					<div class="control-group">
+						<input type="text" ng-model="vm.employee.Name" placeholder="Name" />
+						<input type="text" ng-model="vm.employee.Occupation" placeholder="Occupation" />
+						<input type="text" ng-model="vm.employee.Salary" placeholder="Salary" />
+						<input type="text" ng-model="vm.employee.City" placeholder="City" />
+						<input type="button" class="btn btn-primary" ng-click="vm.addOrEdit()" value="Add or Edit" />
+						<input type="button" class="btn" value="Reset" ng-click="vm.reset()" />
+					</div>
+				</form>
+			</div>
+			<br/>
+			<div class="col-md-10">
+				<table class="table">
+					<thead>
+					<tr>
+						<th style="text-align: center">Name</th>
+						<th style="text-align: center">Occupation</th>
+						<th style="text-align: center">Salary</th>
+						<th style="text-align: center">City</th>
+						<th style="text-align: center">Edit</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="emp in vm.employees">
+						<td>{{emp.Name}}</td>
+						<td>{{emp.Occupation}}</td>
+						<td>{{emp.Salary}}</td>
+						<td>{{emp.City}}</td>
+						<td>
+							<button class="btn" ng-click="vm.edit(emp)">Edit</button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
